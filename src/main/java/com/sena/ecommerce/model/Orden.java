@@ -12,7 +12,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Orden")
+@Table(name = "Ordenes")
 
 public class Orden {
 	
@@ -78,6 +78,22 @@ public class Orden {
 
 	public Double getTotal() {
 		return total;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public List<DetalleOrden> getDetalle() {
+		return detalle;
+	}
+
+	public void setDetalle(List<DetalleOrden> detalle) {
+		this.detalle = detalle;
 	}
 
 	public void setTotal(Double total) {

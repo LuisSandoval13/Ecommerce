@@ -30,7 +30,8 @@ public class Producto {
 	}
 
 
-	public Producto(Integer id, String nombre, String descripcion, String imagen, Double precio, Integer cantidad) {
+	public Producto(Integer id, String nombre, String descripcion, String imagen, Double precio, Integer cantidad,
+			Usuario usuario) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -38,6 +39,7 @@ public class Producto {
 		this.imagen = imagen;
 		this.precio = precio;
 		this.cantidad = cantidad;
+		this.usuario = usuario;
 	}
 
 
@@ -100,6 +102,14 @@ public class Producto {
 		this.cantidad = cantidad;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	@Override
 	public String toString() {

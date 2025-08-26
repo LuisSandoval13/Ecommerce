@@ -2,48 +2,48 @@ package com.sena.ecommerce.model;
 
 import java.util.List;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.NamedEntityGraph;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-@NamedEntityGraph
-@Table (name = "usuario")
+@Entity
+@Table(name = "usuarios")
 
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+
 	private Integer id;
 	private String nombre;
 	private String username;
-	private String imail;
+	private String email;
 	private String documento;
 	private String direccion;
 	private String telefono;
 	private String password;
 	private String tipo;
-	
-	@OneToMany(mappedBy = "usuarios")
+
+	@OneToMany(mappedBy = "usuario")
 	private List<Producto> productos;
-	
-	@OneToMany(mappedBy = "usuarios")
+
+	@OneToMany(mappedBy = "usuario")
 	private List<Orden> ordenes;
-	
+
 	public Usuario() {
-		
+
 	}
 
-	public Usuario(Integer id, String nombre, String username, String imail, String documento, String direccion,
+	public Usuario(Integer id, String nombre, String username, String email, String documento, String direccion,
 			String telefono, String password, String tipo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.username = username;
-		this.imail = imail;
+		this.email = email;
 		this.documento = documento;
 		this.direccion = direccion;
 		this.telefono = telefono;
@@ -76,11 +76,11 @@ public class Usuario {
 	}
 
 	public String getImail() {
-		return imail;
+		return email;
 	}
 
 	public void setImail(String imail) {
-		this.imail = imail;
+		this.email = imail;
 	}
 
 	public String getDocumento() {
@@ -125,12 +125,9 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", username=" + username + ", imail=" + imail
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", username=" + username + ", imail=" + email
 				+ ", documento=" + documento + ", direccion=" + direccion + ", telefono=" + telefono + ", password="
 				+ password + ", tipo=" + tipo + "]";
 	}
-
-
-	
 
 }
