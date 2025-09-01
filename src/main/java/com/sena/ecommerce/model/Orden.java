@@ -13,12 +13,10 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Ordenes")
-
 public class Orden {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Integer id; 
 	private String numero;
 	private Date fechacreacion;

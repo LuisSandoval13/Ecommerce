@@ -75,12 +75,12 @@ public class Usuario {
 		this.username = username;
 	}
 
-	public String getImail() {
+	public String getEmail() {
 		return email;
 	}
 
-	public void setImail(String imail) {
-		this.email = imail;
+	public void setemail(String email) {
+		this.email = email;
 	}
 
 	public String getDocumento() {
@@ -125,7 +125,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", username=" + username + ", imail=" + email
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", username=" + username + ", email=" + email
 				+ ", documento=" + documento + ", direccion=" + direccion + ", telefono=" + telefono + ", password="
 				+ password + ", tipo=" + tipo + "]";
 	}
