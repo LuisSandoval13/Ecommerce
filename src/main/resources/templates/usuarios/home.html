@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http//thymeLeaf.org">
 
-<head th:insert="~{usuarios/template_user.html::head}"></head>
+<head th:insert="~{usuarios/template_user.html::head}">
+
+</head>
 
 <body>
-
 	<div th:insert="~{usuarios/template_user.html::headerLogout}"></div>
 
 	<!-- Hero Section -->
@@ -79,101 +80,27 @@
 		<div class="row g-4">
 			<div class="col-md-6 col-lg-3" th:each="producto: ${productos}">
 				<div class="card product-card">
-					<img th:src="@{/images/{img}  (img=${producto.imagen})}" th:alt="${producto.imagen}"
-						class="card-img-top">
-
+					<img th:src="@{/images/{img} (img=${producto.imagen})}" class="card-img-top"
+						th:alt="${producto.imagen}">
 					<div class="card-body">
-						<h5 class="card-title" th:text="${producto.nombre}"></h5>
-						<p class="card-title" th:text="${producto.descripcion}"></p>
-						<p class="h5 text-primary" th:text="${#strings.concat('$',
-							#numbers.formatDecimal(producto.Precio, 0, 'POINT', 0,'POINT'))}">
+						<h5 class="card-title" th:text=${producto.nombre}></h5>
+						<p class="card-text" th:text=${producto.descripcion}></p>
+						<p class="h5 text-primary"
+							th:text="${#strings.concat('$', #numbers.formatDecimal(producto.Precio, 0, 'POINT', 0,'POINT'))}">
 						</p>
-
-						<button class="btn btn-primary w-100 add-to-cart">
-							<i class="bi bi-cart-plus me-1"></i> Añadir al carrito
-						</button>
+						<a class="btn btn-primary w-100 " th:href="@{/productohome/{id} (id=${producto.id})}">
+							<i class="bi bi-cart-plus me-1"></i> Ver Producto
+						</a>
 					</div>
 				</div>
 			</div>
-
-			<div class="card product-card">
-				<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80"
-					class="card-img-top" alt="Zapatillas">
-				<div class="card-body">
-					<h5 class="card-title">Zapatillas Deportivas</h5>
-					<p class="card-text">Máxima comodidad para tus entrenamientos diarios</p>
-					<p class="h5 text-primary">$89.99</p>
-					<button class="btn btn-primary w-100 add-to-cart">
-						<i class="bi bi-cart-plus me-1"></i> Añadir al carrito
-					</button>
-				</div>
-			</div>
-		</div>
 		</div>
 	</section>
 
 
+	<div th:insert="~{usuarios/template_user.html::footer}"></div>
 
-
-
-	<!-- Footer -->
-	<footer class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 mb-4 mb-md-0">
-					<h5>Acerca de PurpleShop</h5>
-					<p>Somos una tienda online comprometida con ofrecer los mejores productos a precios competitivos,
-						con un servicio al cliente excepcional y envíos rápidos a todo el país.</p>
-				</div>
-				<div class="col-md-2 mb-4 mb-md-0">
-					<h5>Enlaces Rápidos</h5>
-					<ul class="list-unstyled">
-						<li class="mb-2"><a href="#">Inicio</a></li>
-						<li class="mb-2"><a href="#">Productos</a></li>
-						<li class="mb-2"><a href="#">Ofertas</a></li>
-						<li class="mb-2"><a href="#">Contacto</a></li>
-						<li><a href="#">Términos y Condiciones</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 mb-4 mb-md-0">
-					<!-- <h5>Categorías</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#">Electrónicos</a></li>
-                        <li class="mb-2"><a href="#">Ropa</a></li>
-                        <li class="mb-2"><a href="#">Hogar</a></li>
-                        <li class="mb-2"><a href="#">Deportes</a></li>
-                        <li><a href="#">Juguetes</a></li>
-                    </ul> -->
-				</div>
-				<div class="col-md-3">
-					<h5>Síguenos</h5>
-					<div class="social-icons">
-						<a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
-						<a href="https://x.com/" target="_blank"><i class="bi bi-twitter"></i></a>
-						<a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
-						<a href="https://www.youtube.com/" target="_blank"><i class="bi bi-youtube"></i></a>
-						<a href="https://www.linkedin.com/login/es" target="_blank"><i class="bi bi-linkedin"></i></a>
-					</div>
-					<div class="mt-3">
-						<p>Suscríbete a nuestro newsletter:</p>
-						<div class="input-group">
-							<input type="email" class="form-control" placeholder="Tu email">
-							<button class="btn btn-light" type="button">
-								<i class="bi bi-send"></i>
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr class="mt-4 mb-4">
-			<div class="text-center">
-				<p class="pf">&copy; 2025 PurpleShop. Todos los derechos reservados.</p>
-			</div>
-		</div>
-	</footer>
-	<div th:insert="~{usuarios/template_user.html::jsFiles}">
-
-
+	<div th:insert="~{usuarios/template_user.html::jsFiles}"></div>
 </body>
 
-</html>
+</html>}
